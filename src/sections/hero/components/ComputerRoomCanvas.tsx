@@ -41,6 +41,7 @@ function CanvasInner() {
   const targetRef = useRef<THREE.Object3D | null>(null);
 
   const spotlightTweenRef = useRef<gsap.core.Tween>(null);
+  const cameraTweenRef = useRef<gsap.core.Tween>(null);
 
   useGSAP(() => {
     spotlightTweenRef.current = gsap
@@ -51,14 +52,24 @@ function CanvasInner() {
       })
       .pause();
 
-      // TODO: when this tween completes I can use another state varaible to open the menu
+    cameraTweenRef.current = gsap
+      .to(cameraRef.current!.position, {
+        z: 8,
+        duration: 0.7,
+        ease: "power2.inOut",
+      })
+      .pause();
+
+    // TODO: when this tween completes I can use another state varaible to open the menu
   });
 
   useEffect(() => {
     if (mainMenuOpen) {
       spotlightTweenRef.current?.play();
+      cameraTweenRef.current?.play();
     } else {
       spotlightTweenRef.current?.reverse();
+      cameraTweenRef.current?.reverse();
     }
   }, [mainMenuOpen]);
 
