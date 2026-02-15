@@ -1,11 +1,14 @@
 import Hero from "./sections/hero/Hero";
 import Navbar from "./components/Navbar";
+import ApplicationContextProvider from "./contexts/ApplicationContext";
 
 function App() {
   return (
     <main>
-      <Navbar/>
-      <Hero />
+      <ApplicationContextProvider>
+        <Navbar />
+        <Hero />
+      </ApplicationContextProvider>
     </main>
   );
 }

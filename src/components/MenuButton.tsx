@@ -1,8 +1,11 @@
 import { Button } from "./ui/button";
 
-export default function MenuButton() {
+export default function MenuButton(props: React.ComponentProps<"button">) {
   return (
-    <Button className="bg-primary text-primary-foreground inline-block px-8 font-konexy">
+    <Button
+      className="bg-primary text-primary-foreground inline-block px-8 font-konexy"
+      onClick={props.onClick}
+    >
       <div className="flex items-center gap-1">
         Menu
         <Hamburger />

@@ -1,8 +1,4 @@
-import {
-  Canvas,
-  type ThreeElement,
-  type ThreeElements,
-} from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { ComputerRoomModel } from "./ComputerRoomModel";
 import {
   OrbitControls,
@@ -11,11 +7,14 @@ import {
   PerspectiveCamera,
 } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import type { Group } from "three";
 import { SpotLight } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { ApplicationContext } from "@/contexts/ApplicationContext";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function ComputerRoomCanvas() {
   return (
@@ -34,11 +33,34 @@ export default function ComputerRoomCanvas() {
 }
 
 function CanvasInner() {
+  const { mainMenuOpen } = useContext(ApplicationContext);
+
   const computerModelRef = useRef<Group | null>(null);
   const spotlightRef = useRef<THREE.SpotLight | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const targetRef = useRef<THREE.Object3D | null>(null);
 
+  const spotlightTweenRef = useRef<gsap.core.Tween>(null);
+
+  useGSAP(() => {
+    spotlightTweenRef.current = gsap
+      .to(spotlightRef.current, {
+        angle: Math.PI / 9,
+        duration: 0.3,
+        ease: "power2.inOut",
+      })
+      .pause();
+
+      // TODO: when this tween completes I can use another state varaible to open the menu
+  });
+
+  useEffect(() => {
+    if (mainMenuOpen) {
+      spotlightTweenRef.current?.play();
+    } else {
+      spotlightTweenRef.current?.reverse();
+    }
+  }, [mainMenuOpen]);
 
   useFrame(() => {
     if (!cameraRef.current || !spotlightRef.current || !targetRef.current)
@@ -50,7 +72,6 @@ function CanvasInner() {
       cameraRef.current.position.z,
     );
 
-
     spotlightRef.current.position.copy(cameraRef.current.position);
     spotlightRef.current.quaternion.copy(cameraRef.current.quaternion);
     spotlightRef.current.target = targetRef.current;
@@ -58,7 +79,7 @@ function CanvasInner() {
   return (
     <>
       <PerspectiveCamera
-      ref={cameraRef}
+        ref={cameraRef}
         makeDefault
         position={[-0.5, -0.04, 5]}
         zoom={5}
