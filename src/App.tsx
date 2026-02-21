@@ -3,6 +3,8 @@ import Navbar from "./components/Navbar";
 import ApplicationContextProvider from "./contexts/ApplicationContext";
 import NavMenu from "./components/NavMenu";
 import ProjectsSection from "./sections/projects/Projects";
+import ArtGallery from "./sections/art-gallery/ArtGallery";
+import WorkExperienceSection from "./sections/work-experience/WorkExperience";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Navbar />
         <Hero />
         <ProjectsSection/>
+        <WorkExperienceSection/>
+        <ArtGallery/>
       </ApplicationContextProvider>
     </main>
   );
