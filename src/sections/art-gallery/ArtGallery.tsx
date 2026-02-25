@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 export default function ArtGallery() {
+  const numItems = 12;
   useGSAP(() => {
     let count = 0;
 
@@ -13,7 +14,7 @@ export default function ArtGallery() {
         duration: 3,
       });
 
-      count = (count + 1) % 12;
+      count = (count + 1) % numItems;
 
       gsap.to(`.art-${count}`, {
         opacity: 1,
@@ -25,7 +26,7 @@ export default function ArtGallery() {
   }, []);
   return (
     <section className="h-screen relative py-8">
-      {Array(11)
+      {Array(numItems)
         .fill(0)
         .map((_, index) => (
           <div key={`art-${index}`} className="size-full absolute left-0 top-0">
