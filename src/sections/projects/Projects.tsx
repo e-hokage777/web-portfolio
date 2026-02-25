@@ -12,24 +12,25 @@ export default function ProjectsSection() {
         </div>
         <div className="grid grid-cols-2 gap-12">
           <ProjectCard
-            image={"/images/profile.jpg"}
+            image={"/images/projects/siwa.png"}
             title="Smart Indigenous Weather Application"
+            description="Revolutionalizing weather prediction with indigneous heritage and Artificial Intelligence"
           />
           <ProjectCard
-            image={"/images/profile.jpg"}
+            image={"/images/projects/hoot.jpg"}
             title="Hoot"
+            description="Portraying Africa's culture with visual art"
           />
+          <ProjectCard image={"/images/projects/easyGo.jpg"} title="easyGo" description="Vacations? Field Trips? Plan your travel with ease" />
           <ProjectCard
-            image={"/images/profile.jpg"}
-            title="easyGo"
-          />
-          <ProjectCard
-            image={"/images/profile.jpg"}
-            title="Crop Disease Detection"
-          />
-          <ProjectCard
-            image={"/images/profile.jpg"}
+            image={"/images/projects/bilibuddy.png"}
             title="BiliBuddy"
+            description="Protecting futures through the early detection of neonatal jaundice"
+          />
+          <ProjectCard
+            image={"/images/projects/digital-broselow.png"}
+            title="Digital Broselow"
+            description="Supporting emergency treatment efforts through seamless estimation of height and weight"
           />
         </div>
       </div>

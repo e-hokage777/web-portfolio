@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
@@ -17,6 +18,7 @@
 :root {
   --font-rostex: "rostex";
   --font-konexy: "konexy";
+  --font-montserrat: "Montserrat", sans-serif;
   --primary: oklch(0.9083 0.0957 195.6);
   --secondary: oklch(0.97 0 0);
   --radius: 0.625rem;
@@ -52,8 +54,9 @@
 }
 
 @theme {
-  --font-rostex: "rostex";
-  --font-konexy: "konexy";
+  --font-rostex: var(--font-rostex);
+  --font-konexy: var(--font-konexy);
+  --font-montserrat: var(--font-montserrat);
   --color-primary: var(--primary) --color-secondary: var(--secondary);
   --color-white: #ffffff;
 }

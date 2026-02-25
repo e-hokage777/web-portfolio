@@ -13,7 +13,7 @@ export default function ArtGallery() {
         duration: 3,
       });
 
-      count = (count + 1) % 11;
+      count = (count + 1) % 12;
 
       gsap.to(`.art-${count}`, {
         opacity: 1,

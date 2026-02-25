@@ -6,9 +6,11 @@ import { ArrowRight } from "lucide-react";
 export default function ProjectCard({
   image,
   title,
+  description
 }: {
   image: string;
   title: string;
+  description?: string;
 }) {
   const coloredImageRef = useRef<HTMLImageElement>(null);
   const hoverTimeline = useRef<gsap.core.Timeline>(null);
@@ -35,7 +37,7 @@ export default function ProjectCard({
   return (
     <div className="flex flex-col gap-4">
       <div
-        className="relative rounded-lg overflow-hidden h-100 cursor-pointer"
+        className="relative rounded-lg overflow-hidden h-100 cursor-pointer border border-gray-300"
         onMouseEnter={() => {
           console.log("dlfjldkfj");
           hoverTimeline.current?.play();
@@ -44,7 +46,7 @@ export default function ProjectCard({
       >
         <img
           src={image}
-          className="grayscale-100 size-full object-cover absolute left-0 top-0"
+          className="size-full object-cover absolute left-0 top-0 invert-25"
         />
         <img
           src={image}
@@ -53,12 +55,17 @@ export default function ProjectCard({
         />
         <div
           ref={arrowRef}
-          className="w-12 h-12 rounded-full text-white border-3 border-white absolute left-5 top-5 flex justify-center items-center scale-0"
+          className="w-12 h-12 rounded-full text-white border-3 border-white bg-black absolute left-5 top-5 flex justify-center items-center scale-0"
         >
           <ArrowRight className="stroke-white stroke-3" />
         </div>
       </div>
-      <div className="font-konexy text-4xl ">{title}</div>
+      <div>
+        <div className="font-konexy text-3xl">{title}</div>
+      <div className="font-montserrat">
+        {description}
+      </div>
+      </div>
     </div>
   );
 }
