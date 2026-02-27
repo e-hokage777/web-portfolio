@@ -16,7 +16,6 @@ export default function Timeline({
   divisionLength = 900,
   numTimeSteps = 3,
 }: TimelineProps) {
-  const timelineRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
   const timelineLength = divisionLength * (numTimeSteps - 1);
   const [numberActive, setNumberActive] = useState(0);
@@ -89,7 +88,6 @@ function TimelineItem({
   const itemRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLDivElement>(null);
   const timelineTweenRef = useRef<gsap.core.Timeline>(null);
-  const timeRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
     timelineTweenRef.current = gsap.timeline({ paused: true });

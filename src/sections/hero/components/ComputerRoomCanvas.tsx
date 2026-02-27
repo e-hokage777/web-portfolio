@@ -1,9 +1,6 @@
 import { Canvas } from "@react-three/fiber";
 import { ComputerRoomModel } from "./ComputerRoomModel";
 import {
-  OrbitControls,
-  Stage,
-  FirstPersonControls,
   PerspectiveCamera,
 } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
