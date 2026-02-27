@@ -34,15 +34,15 @@ export default function Hero() {
 
   return (
     <section className="h-screen relative bg-black">
-      <div className="flex-3 overflow-hidden absolute left-0 top-0 h-full w-full">
+      <div className=" overflow-hidden absolute left-0 top-0 h-full w-full">
         <div className="size-full absolute left-0 top-0">
           <ComputerRoomCanvas />
         </div>
       </div>
-      <div className="text-white  h-full px-8 flex-2 absolute left-0 top-0 z-10 pointer-events-none">
+      <div className="text-white  h-full px-8 absolute left-0 top-0 z-10 pointer-events-none">
         <div
           ref={textRef}
-          className="flex-1 flex flex-col gap-8 justify-center h-full max-w-1/2"
+          className="w-full flex-1 flex flex-col gap-8 justify-center h-full md:w-1/2"
         >
           <h1 className="text-7xl font-rostex">Hi There</h1>
           <p className="text-2xl text-gray-400">

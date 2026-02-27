@@ -23,7 +23,7 @@ export default function ProjectCard({
     hoverTimeline.current = gsap.timeline().pause();
 
     hoverTimeline.current.to(coloredImageRef.current, {
-      clipPath: "polygon(38% 0, 100% 0, 100% 100%, 0 100%, 0% 38%)",
+      clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0 100%, 0% 38%)",
       duration: 0.15,
       ease: "power2.out",
     });
@@ -37,17 +37,17 @@ export default function ProjectCard({
   return (
     <div className="flex flex-col gap-4">
       <div
-        className="relative rounded-lg overflow-hidden h-100 cursor-pointer border border-gray-300"
+        className="relative rounded-lg overflow-hidden h-100 cursor-pointer border border-gray-300 bg-black"
         onMouseEnter={() => {
           console.log("dlfjldkfj");
           hoverTimeline.current?.play();
         }}
         onMouseLeave={() => hoverTimeline.current?.reverse()}
       >
-        <img
+        {/* <img
           src={image}
           className="size-full object-cover absolute left-0 top-0 invert-25"
-        />
+        /> */}
         <img
           src={image}
           className="size-full object-cover absolute left-0 top-0"

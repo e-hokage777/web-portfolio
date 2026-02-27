@@ -10,7 +10,7 @@ export default function ProjectsSection() {
             These are some of the cool projects I've worked on, enjoy !!
           </p>
         </div>
-        <div className="grid grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <ProjectCard
             image={"/images/projects/siwa.png"}
             title="Smart Indigenous Weather Application"

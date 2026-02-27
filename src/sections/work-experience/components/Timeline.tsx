@@ -23,7 +23,6 @@ export default function Timeline({
 
   useGSAP(() => {
     ScrollTrigger.create({
-      markers: true,
       trigger: triggerElement,
       start: "top top",
       end: `${timelineLength}px top`,
@@ -39,7 +38,6 @@ export default function Timeline({
         }
       },
     });
-
   });
 
   return (
@@ -51,22 +49,49 @@ export default function Timeline({
           width: timelineLength + "px",
         }}
       >
-        <TimelineItem active={numberActive >= 0} />
-        <TimelineItem active={numberActive >= 1} />
-        <TimelineItem active={numberActive >= 2} />
+        <TimelineItem
+          title="Frontend Developer"
+          company="easyGo GH"
+          startDate="09/2022"
+          endDate="12/2023"
+          active={numberActive >= 0}
+        />
+        <TimelineItem
+          title="Frontend Developer"
+          company="Hoot"
+          startDate="12/2023"
+          active={numberActive >= 1}
+        />
+        <TimelineItem
+          title="Research Associate"
+          company="Distributed IoT Platforms, Privacy and Edge Intelligence"
+          startDate="09/2024"
+          active={numberActive >= 2}
+        />
       </div>
     </div>
   );
 }
 
-function TimelineItem({ active = false }: { active?: boolean }) {
+function TimelineItem({
+  title,
+  company,
+  startDate,
+  endDate,
+  active = false,
+}: {
+  active?: boolean;
+  title: string;
+  company: string;
+  startDate: string;
+  endDate?: string;
+}) {
   const itemRef = useRef<HTMLDivElement>(null);
   const indicatorRef = useRef<HTMLDivElement>(null);
   const timelineTweenRef = useRef<gsap.core.Timeline>(null);
   const timeRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-
     timelineTweenRef.current = gsap.timeline({ paused: true });
 
     timelineTweenRef.current.to(indicatorRef.current, {
@@ -91,18 +116,28 @@ function TimelineItem({ active = false }: { active?: boolean }) {
 
   return (
     <div className="w-15 h-15  rounded-full relative translate-y-1/2 ">
-      <div className="size-full bg-red-300 rounded-full perspective-midrange rotate-x-60 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="size-full bg-primary rounded-full perspective-midrange rotate-x-60 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
         <div
           ref={indicatorRef}
-          className="size-full scale-0 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-red-200"
+          className="size-full scale-0 rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-primary"
         ></div>
       </div>
 
       <div
         ref={itemRef}
-        className="absolute left-1/2 bottom-0 -translate-y-20 -translate-x-1/2 border-2 border-gray-300 bg-white w-100 h-50 text-black text-center flex items-center justify-center scale-0"
+        className="absolute left-1/2 bottom-0 -translate-y-20 -translate-x-1/2 border-2 border-gray-300  w-100 h-50  text-center flex items-center justify-start scale-0 px-4"
       >
-        dfldfjldkjfl
+        <div className="flex flex-col items-start gap-4 text-white">
+          <span className="text-xl text-primary">{title}</span>
+          <span className="text-start font-montserrat text-lg text-gray-600 font-bold">
+            {company}
+          </span>
+        </div>
+      </div>
+      <div className="absolute left-1/2 -bottom-12  -translate-x-1/2 text-white text-lg flex items-center gap-2">
+        <span>{startDate}</span>
+        <span>-</span>
+        <span>{endDate ?? "Present"}</span>
       </div>
     </div>
   );

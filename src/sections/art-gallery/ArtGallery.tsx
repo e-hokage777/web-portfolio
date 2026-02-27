@@ -8,7 +8,6 @@ export default function ArtGallery() {
     let count = 0;
 
     const interval = setInterval(() => {
-        console.log("ldkfjldkjflk")
       gsap.to(`.art-${count}`, {
         opacity: 0,
         duration: 3,
