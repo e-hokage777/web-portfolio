@@ -5,6 +5,7 @@ import NavMenu from "./components/NavMenu";
 import ProjectsSection from "./sections/projects/Projects";
 import ArtGallery from "./sections/art-gallery/ArtGallery";
 import WorkExperienceSection from "./sections/work-experience/WorkExperience";
+import Connect from "./sections/connect/Connect";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <ProjectsSection/>
         <WorkExperienceSection/>
         <ArtGallery/>
+        <Connect/>
       </ApplicationContextProvider>
     </main>
   );

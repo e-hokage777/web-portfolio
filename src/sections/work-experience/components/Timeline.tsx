@@ -94,13 +94,13 @@ function TimelineItem({
 
     timelineTweenRef.current.to(indicatorRef.current, {
       scale: 1.75,
-      duruation: 0.3,
+      duration: 0.2,
     });
 
     timelineTweenRef.current.to(itemRef.current, {
       scale: 1,
       ease: "power4.out",
-      duration: 0.3,
+      duration: 0.2,
     });
   });
 

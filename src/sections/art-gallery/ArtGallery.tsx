@@ -24,7 +24,7 @@ export default function ArtGallery() {
     return () => clearInterval(interval)
   }, []);
   return (
-    <section className="h-screen relative py-8">
+    <section id="art-section" className="h-screen relative py-8">
       {Array(numItems)
         .fill(0)
         .map((_, index) => (
@@ -51,7 +51,7 @@ export default function ArtGallery() {
         <p className="text-2xl font-kenexy text-center">
           Explore the works of an amateur artist, yours truly
         </p>
-        <h1 className="text-center font-rostex text-7xl mb-8 text-white text-center">
+        <h1 className="font-rostex text-7xl mb-8 text-white text-center">
           My Art Gallery
         </h1>
       </div>

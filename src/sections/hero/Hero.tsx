@@ -11,10 +11,9 @@ export default function Hero() {
   const textTweenRef = useRef<gsap.core.Tween>(null);
 
   useGSAP(() => {
-    const split= SplitText.create(textRef.current, {
+    const split = SplitText.create(textRef.current, {
       type: "words,chars",
       mask: "words",
-      
     });
 
     textTweenRef.current = gsap
@@ -33,7 +32,7 @@ export default function Hero() {
   }, [mainMenuOpen]);
 
   return (
-    <section className="h-screen relative bg-black">
+    <section id="hero-section" className="h-screen relative bg-black">
       <div className=" overflow-hidden absolute left-0 top-0 h-full w-full">
         <div className="size-full absolute left-0 top-0">
           <ComputerRoomCanvas />
@@ -46,11 +45,13 @@ export default function Hero() {
         >
           <h1 className="text-7xl font-rostex">Hi There</h1>
           <p className="text-2xl text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus
-            eius tempore <span className="text-primary">something</span>{" "}
-            doloremque aperiam illo necessitatibus, dolores reiciendis ut
-            placeat voluptatibus dicta enim esse sint unde sunt debitis vel
-            dignissimos!
+            I'm <span className="text-white">Eli</span>, a multitalented{" "}
+            <span className="text-white">software engineer</span>, with
+            experience in <span className="text-white">machine learning</span>,{" "}
+            <span className="text-white">web development</span>,{" "}
+            <span className="text-white">mobile development</span>, and 3
+            <span className="text-white">3D modeling</span>. I love art and
+            anime, and am always ready to connect
           </p>
         </div>
       </div>

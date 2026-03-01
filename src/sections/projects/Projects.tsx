@@ -2,7 +2,7 @@ import ProjectCard from "./components/ProjectCard";
 
 export default function ProjectsSection() {
   return (
-    <section className="py-8">
+    <section id="projects-section" className="py-8">
       <div className="container mx-auto">
         <div className="mb-8">
           <h1 className="text-7xl font-rostex">Projects</h1>
@@ -21,7 +21,11 @@ export default function ProjectsSection() {
             title="Hoot"
             description="Portraying Africa's culture with visual art"
           />
-          <ProjectCard image={"/images/projects/easyGo.jpg"} title="easyGo" description="Vacations? Field Trips? Plan your travel with ease" />
+          <ProjectCard
+            image={"/images/projects/easyGo.jpg"}
+            title="easyGo"
+            description="Vacations? Field Trips? Plan your travel with ease"
+          />
           <ProjectCard
             image={"/images/projects/bilibuddy.png"}
             title="BiliBuddy"
