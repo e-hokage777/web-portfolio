@@ -56,14 +56,14 @@ export default function Connect() {
           </a>
           <a
             className="contact-link underline text-primary"
-            href="#"
+            href="https://leetcode.com/u/ehokage777/"
             target="_blank"
           >
             LeetCode
           </a>
           <a
             className="contact-link underline text-primary"
-            href="#"
+            href="https://codeforces.com/profile/ehokage777"
             target="_blank"
           >
             CodeForces
